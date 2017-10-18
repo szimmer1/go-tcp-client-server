@@ -3,6 +3,7 @@ package network
 import (
 	"fmt"
 	"net"
+	"os"
 	"time"
 )
 
@@ -65,4 +66,11 @@ func RunTcpClient(
 		client.Say(line)
 	}
 	return
+}
+
+func main() {
+	err := RunTcpClient(os.Args[1], time.Second)
+	if err != nil {
+		panic(err)
+	}
 }
